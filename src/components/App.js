@@ -14,6 +14,7 @@ import FilmContainer from "../containers/FilmContainer";
 import PeopleContainer from "../containers/PeopleContainer";
 import PlanetsContainer from "../containers/PlanetsContainer";
 import StarshipsContainer from "../containers/StarshipsContainer";
+import SpeciesContainer from "../containers/SpeciesContainer";
 
 const NavLinks = () => (
 	<div className="NavLinks">
@@ -63,10 +64,8 @@ const App = () => (
 				<Route path="/films" component={FilmsContainer} />
 				<Route path="/people" component={PeopleContainer} />
 				<Route path="/planets" component={PlanetsContainer} />
-				<Route path="/species/:id" render={() => <h1>species id</h1>} />
-				<Route path="/species" render={() => <h1>species</h1>} />
+				<Route path="/species" component={SpeciesContainer} />
 				<Route path="/starships" component={StarshipsContainer} />
-				<Route path="/vehicles/:id" render={() => <h1>vehicles id</h1>} />
 				<Route path="/vehicles" render={() => <h1>vehicles</h1>} />
 				<Route render={() => <h1>Page not found</h1>} />
 			</Switch>
