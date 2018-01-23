@@ -11,13 +11,14 @@ class FilmsContainer extends Component {
 
 	render() {
 		const { films, isFetching } = this.props;
+		console.log("films in container", films);
 		return <Films films={films} isFetching={isFetching} />;
 	}
 }
 
 const mapStateToProps = state => {
 	return {
-		films: state.films,
+		films: state.films.results,
 		isFetching: state.isFetching
 	};
 };

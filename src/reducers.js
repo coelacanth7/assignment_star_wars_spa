@@ -1,7 +1,8 @@
 import {
 	GETTING_REQUEST,
 	GET_FILMS_SUCCESS,
-	GET_REQUEST_FAILURE
+	GET_REQUEST_FAILURE,
+	GET_FILM_SUCCESS
 } from "./actions";
 
 const initialState = {
@@ -23,6 +24,12 @@ export function SWReducer(state = initialState, action) {
 			return {
 				...state,
 				films: action.data,
+				isFetching: false
+			};
+		case GET_FILM_SUCCESS:
+			return {
+				...state,
+				film: action.data,
 				isFetching: false
 			};
 		case GET_REQUEST_FAILURE:

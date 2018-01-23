@@ -10,6 +10,7 @@ import {
 import JumbotronFluid from "./elements/JumbotronFluid";
 import Home from "./Home";
 import FilmsContainer from "../containers/FilmsContainer";
+import FilmContainer from "../containers/FilmContainer";
 
 const NavLinks = () => (
 	<div className="NavLinks">
@@ -55,7 +56,7 @@ const App = () => (
 
 			<Switch>
 				<Route exact path="/" component={Home} />
-				<Route path="/films/:id" render={() => <h1>film id</h1>} />
+				<Route path="/films/:id" component={FilmContainer} />
 				<Route path="/films" component={FilmsContainer} />
 				<Route path="/people/:id" render={() => <h1>people id</h1>} />
 				<Route path="/people" render={() => <h1>People</h1>} />

@@ -42,7 +42,7 @@ export function _request(url, successCallback) {
 			})
 			.then(json => {
 				console.log(json);
-				dispatch(successCallback(json.results));
+				dispatch(successCallback(json));
 			})
 			.catch(error => {
 				dispatch(getRequestFailure(error));
