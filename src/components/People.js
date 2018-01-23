@@ -1,7 +1,13 @@
 import React from "react";
 import Button from "./elements/Button";
 
-const People = ({ people, isFetching, getClickedPage }) => {
+const People = ({
+	people,
+	isFetching,
+	getClickedPage,
+	getSearchResults,
+	clearSearchResults
+}) => {
 	if (isFetching) {
 		return <h1>Loading People...</h1>;
 	}
@@ -59,6 +65,29 @@ const People = ({ people, isFetching, getClickedPage }) => {
 
 	return (
 		<div className="container-fluid">
+			<form onSubmit={getSearchResults}>
+				<div className="form-row">
+					<div className="col">
+						<input
+							type="text"
+							name="query"
+							className="form-control"
+							placeholder="search..."
+						/>
+					</div>
+					<div className="col">
+						<input type="submit" className="form-control btn btn-success" />
+					</div>
+					<div className="col">
+						<input
+							type="button"
+							className="form-control btn btn-success"
+							value="clear search"
+							onClick={clearSearchResults}
+						/>
+					</div>
+				</div>
+			</form>
 			<span>
 				{previousPage}
 				{"  "}
