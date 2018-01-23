@@ -3,6 +3,7 @@ export const GET_FILMS_SUCCESS = "GET_FILMS_SUCCESS";
 export const GET_REQUEST_FAILURE = "GET_REQUEST_FAILURE";
 export const GET_FILM_SUCCESS = "GET_FILM_SUCCESS";
 export const GET_PEOPLE_SUCCESS = "GET_PEOPLE_SUCCESS";
+export const GET_PLANETS_SUCCESS = "GET_PLANETS_SUCCESS";
 
 export function gettingRequest() {
 	return {
@@ -34,6 +35,13 @@ export function getFilmSuccess(data) {
 export function getPeopleSuccess(data) {
 	return {
 		type: GET_PEOPLE_SUCCESS,
+		data
+	};
+}
+
+export function getPlanetsSuccess(data) {
+	return {
+		type: GET_PLANETS_SUCCESS,
 		data
 	};
 }
