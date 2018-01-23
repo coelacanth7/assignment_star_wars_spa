@@ -11,8 +11,14 @@ class PeopleContainer extends Component {
 	}
 
 	render() {
-		const { people, isFetching } = this.props;
-		return <People people={people} isFetching={isFetching} />;
+		const { people, isFetching, getClickedPage } = this.props;
+		return (
+			<People
+				people={people}
+				isFetching={isFetching}
+				getClickedPage={getClickedPage}
+			/>
+		);
 	}
 }
 
@@ -27,6 +33,11 @@ const mapDispatchToProps = dispatch => {
 	return {
 		requestPeopleData: () => {
 			dispatch(_request("https://swapi.co/api/people/", getPeopleSuccess));
+		},
+		getClickedPage: e => {
+			const page = e.target.name;
+			console.log("page", page);
+			dispatch(_request(page, getPeopleSuccess));
 		}
 	};
 };

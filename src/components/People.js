@@ -1,11 +1,32 @@
 import React from "react";
+import Button from "./elements/Button";
 
-const People = ({ people, isFetching }) => {
+const People = ({ people, isFetching, getClickedPage }) => {
 	if (isFetching) {
 		return <h1>Loading People...</h1>;
 	}
 
 	console.log("people in People.js", people);
+
+	var previousPage = "";
+	var nextPage = "";
+
+	if (Object.keys(people).length) {
+		if (people.previous) {
+			previousPage = (
+				<Button name={people.previous} onClick={getClickedPage}>
+					previous
+				</Button>
+			);
+		}
+		if (people.next) {
+			nextPage = (
+				<Button name={people.next} onClick={getClickedPage}>
+					next
+				</Button>
+			);
+		}
+	}
 
 	let peopleCards = "";
 
@@ -38,8 +59,18 @@ const People = ({ people, isFetching }) => {
 
 	return (
 		<div className="container-fluid">
+			<span>
+				{previousPage}
+				{"  "}
+				{nextPage}
+			</span>
 			<h1>People</h1>
 			<div className="">{peopleCards}</div>
+			<span>
+				{previousPage}
+				{"  "}
+				{nextPage}
+			</span>
 		</div>
 	);
 };
