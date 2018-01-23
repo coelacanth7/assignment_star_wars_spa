@@ -22,7 +22,7 @@ export function SWReducer(state = initialState, action) {
 		case GET_FILMS_SUCCESS:
 			return {
 				...state,
-				films: action.datas,
+				films: action.data,
 				isFetching: false
 			};
 		case GET_REQUEST_FAILURE:

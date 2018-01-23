@@ -1,12 +1,15 @@
-import React, { Component } from "react";
+import React from "react";
 import "../App.css";
-import JumbotronFluid from "./elements/JumbotronFluid";
 import {
 	BrowserRouter as Router,
 	Route,
 	NavLink,
 	Switch
 } from "react-router-dom";
+
+import JumbotronFluid from "./elements/JumbotronFluid";
+import Home from "./Home";
+import FilmsContainer from "../containers/FilmsContainer";
 
 const NavLinks = () => (
 	<div className="NavLinks">
@@ -51,9 +54,9 @@ const App = () => (
 			<NavLinks />
 
 			<Switch>
-				<Route exact path="/" render={() => <h1>HOME</h1>} />
+				<Route exact path="/" component={Home} />
 				<Route path="/films/:id" render={() => <h1>film id</h1>} />
-				<Route path="/films" render={() => <h1>Films</h1>} />
+				<Route path="/films" component={FilmsContainer} />
 				<Route path="/people/:id" render={() => <h1>people id</h1>} />
 				<Route path="/people" render={() => <h1>People</h1>} />
 				<Route path="/planets/:id" render={() => <h1>planets id</h1>} />

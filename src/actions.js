@@ -25,7 +25,6 @@ export function getRequestFailure(error) {
 export function requestFilmData() {
 	return dispatch => {
 		dispatch(gettingRequest());
-
 		fetch("https://swapi.co/api/films/")
 			.then(response => {
 				if (!response.ok) {
@@ -35,7 +34,7 @@ export function requestFilmData() {
 			})
 			.then(json => {
 				console.log(json);
-				dispatch(getfilmsSuccess(json));
+				dispatch(getfilmsSuccess(json.results));
 			})
 			.catch(error => {
 				dispatch(getRequestFailure(error));
