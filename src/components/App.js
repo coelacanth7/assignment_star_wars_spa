@@ -11,6 +11,7 @@ import JumbotronFluid from "./elements/JumbotronFluid";
 import Home from "./Home";
 import FilmsContainer from "../containers/FilmsContainer";
 import FilmContainer from "../containers/FilmContainer";
+import PeopleContainer from "../containers/PeopleContainer";
 
 const NavLinks = () => (
 	<div className="NavLinks">
@@ -58,8 +59,7 @@ const App = () => (
 				<Route exact path="/" component={Home} />
 				<Route path="/films/:id" component={FilmContainer} />
 				<Route path="/films" component={FilmsContainer} />
-				<Route path="/people/:id" render={() => <h1>people id</h1>} />
-				<Route path="/people" render={() => <h1>People</h1>} />
+				<Route path="/people" component={PeopleContainer} />
 				<Route path="/planets/:id" render={() => <h1>planets id</h1>} />
 				<Route path="/planets" render={() => <h1>planets</h1>} />
 				<Route path="/species/:id" render={() => <h1>species id</h1>} />

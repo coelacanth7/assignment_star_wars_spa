@@ -2,6 +2,7 @@ export const GETTING_REQUEST = "GET_REQUEST";
 export const GET_FILMS_SUCCESS = "GET_FILMS_SUCCESS";
 export const GET_REQUEST_FAILURE = "GET_REQUEST_FAILURE";
 export const GET_FILM_SUCCESS = "GET_FILM_SUCCESS";
+export const GET_PEOPLE_SUCCESS = "GET_PEOPLE_SUCCESS";
 
 export function gettingRequest() {
 	return {
@@ -30,6 +31,13 @@ export function getFilmSuccess(data) {
 	};
 }
 
+export function getPeopleSuccess(data) {
+	return {
+		type: GET_PEOPLE_SUCCESS,
+		data
+	};
+}
+
 export function _request(url, successCallback) {
 	return dispatch => {
 		dispatch(gettingRequest());
@@ -41,7 +49,7 @@ export function _request(url, successCallback) {
 				return response.json();
 			})
 			.then(json => {
-				console.log(json);
+				console.log("actions json response", json);
 				dispatch(successCallback(json));
 			})
 			.catch(error => {

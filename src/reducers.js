@@ -2,12 +2,15 @@ import {
 	GETTING_REQUEST,
 	GET_FILMS_SUCCESS,
 	GET_REQUEST_FAILURE,
-	GET_FILM_SUCCESS
+	GET_FILM_SUCCESS,
+	GET_PEOPLE_SUCCESS
 } from "./actions";
 
 const initialState = {
 	films: [],
 	film: {},
+	people: {},
+	person: {},
 	isFetching: false,
 	error: null
 };
@@ -30,6 +33,12 @@ export function SWReducer(state = initialState, action) {
 			return {
 				...state,
 				film: action.data,
+				isFetching: false
+			};
+		case GET_PEOPLE_SUCCESS:
+			return {
+				...state,
+				people: action.data,
 				isFetching: false
 			};
 		case GET_REQUEST_FAILURE:
