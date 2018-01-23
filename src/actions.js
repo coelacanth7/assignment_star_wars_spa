@@ -1,6 +1,7 @@
 export const GETTING_REQUEST = "GET_REQUEST";
 export const GET_FILMS_SUCCESS = "GET_FILMS_SUCCESS";
 export const GET_REQUEST_FAILURE = "GET_REQUEST_FAILURE";
+export const GET_FILM_SUCCESS = "GET_FILM_SUCCESS";
 
 export function gettingRequest() {
 	return {
@@ -8,7 +9,7 @@ export function gettingRequest() {
 	};
 }
 
-export function getfilmsSuccess(data) {
+export function getFilmsSuccess(data) {
 	return {
 		type: GET_FILMS_SUCCESS,
 		data
@@ -22,10 +23,17 @@ export function getRequestFailure(error) {
 	};
 }
 
-export function requestFilmData() {
+export function getFilmSuccess(data) {
+	return {
+		type: GET_FILM_SUCCESS,
+		data
+	};
+}
+
+export function _request(url, successCallback) {
 	return dispatch => {
 		dispatch(gettingRequest());
-		fetch("https://swapi.co/api/films/")
+		fetch(url)
 			.then(response => {
 				if (!response.ok) {
 					throw new Error(`${response.status}: ${response.statusText}`);
@@ -34,7 +42,7 @@ export function requestFilmData() {
 			})
 			.then(json => {
 				console.log(json);
-				dispatch(getfilmsSuccess(json.results));
+				dispatch(successCallback(json.results));
 			})
 			.catch(error => {
 				dispatch(getRequestFailure(error));

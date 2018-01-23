@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 
-import { requestFilmData } from "../actions";
+import { _request, getFilmsSuccess } from "../actions";
 import Films from "../components/Films";
 
 class FilmsContainer extends Component {
 	componentWillMount() {
-		this.props.requestFilmData();
+		this.props.requestFilmsData();
 	}
 
 	render() {
@@ -24,8 +24,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
 	return {
-		requestFilmData: () => {
-			dispatch(requestFilmData());
+		requestFilmsData: () => {
+			dispatch(_request("https://swapi.co/api/films/", getFilmsSuccess));
 		}
 	};
 };
