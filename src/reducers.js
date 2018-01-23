@@ -4,7 +4,8 @@ import {
 	GET_REQUEST_FAILURE,
 	GET_FILM_SUCCESS,
 	GET_PEOPLE_SUCCESS,
-	GET_PLANETS_SUCCESS
+	GET_PLANETS_SUCCESS,
+	GET_STARSHIPS_SUCCESS
 } from "./actions";
 
 const initialState = {
@@ -13,6 +14,7 @@ const initialState = {
 	people: {},
 	person: {},
 	planets: {},
+	starships: {},
 	isFetching: false,
 	error: null
 };
@@ -47,6 +49,12 @@ export function SWReducer(state = initialState, action) {
 			return {
 				...state,
 				planets: action.data,
+				isFetching: false
+			};
+		case GET_STARSHIPS_SUCCESS:
+			return {
+				...state,
+				starships: action.data,
 				isFetching: false
 			};
 		case GET_REQUEST_FAILURE:
