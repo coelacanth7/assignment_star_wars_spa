@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "../App.css";
+import JumbotronFluid from "./elements/JumbotronFluid";
 import {
 	BrowserRouter as Router,
 	Route,
@@ -43,6 +44,10 @@ const NavLinks = () => (
 const App = () => (
 	<Router>
 		<div>
+			<JumbotronFluid
+				heading="Star Wars Encyclopedia"
+				lead="react, redux, router and SWAPI"
+			/>
 			<NavLinks />
 
 			<Switch>
