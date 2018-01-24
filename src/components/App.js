@@ -15,6 +15,7 @@ import PeopleContainer from "../containers/PeopleContainer";
 import PlanetsContainer from "../containers/PlanetsContainer";
 import StarshipsContainer from "../containers/StarshipsContainer";
 import SpeciesContainer from "../containers/SpeciesContainer";
+import VehiclesContainer from "../containers/VehiclesContainer";
 
 const NavLinks = () => (
 	<div className="NavLinks">
@@ -66,7 +67,7 @@ const App = () => (
 				<Route path="/planets" component={PlanetsContainer} />
 				<Route path="/species" component={SpeciesContainer} />
 				<Route path="/starships" component={StarshipsContainer} />
-				<Route path="/vehicles" render={() => <h1>vehicles</h1>} />
+				<Route path="/vehicles" component={VehiclesContainer} />
 				<Route render={() => <h1>Page not found</h1>} />
 			</Switch>
 

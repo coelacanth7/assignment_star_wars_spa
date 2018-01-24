@@ -6,6 +6,7 @@ export const GET_PEOPLE_SUCCESS = "GET_PEOPLE_SUCCESS";
 export const GET_PLANETS_SUCCESS = "GET_PLANETS_SUCCESS";
 export const GET_STARSHIPS_SUCCESS = "GET_STARSHIPS_SUCCESS";
 export const GET_SPECIES_SUCCESS = "GET_SPECIES_SUCCESS";
+export const GET_VEHICLES_SUCCESS = "GET_VEHICLES_SUCCESS";
 
 export function gettingRequest() {
 	return {
@@ -58,6 +59,13 @@ export function getStarshipsSuccess(data) {
 export function getSpeciesSuccess(data) {
 	return {
 		type: GET_SPECIES_SUCCESS,
+		data
+	};
+}
+
+export function getVehiclesSuccess(data) {
+	return {
+		type: GET_VEHICLES_SUCCESS,
 		data
 	};
 }
